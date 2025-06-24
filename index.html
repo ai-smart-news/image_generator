@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/png">
     <title>AI 繪圖生成器</title>
     <style>
         * {
@@ -398,6 +399,29 @@
             }
         }
     </style>
+    <style>
+  .close-ad-btn {
+    background-color: #7c3aed; /* 紫色主題 */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, transform 0.2s;
+  }
+
+  .close-ad-btn:hover {
+    background-color: #6d28d9; /* 深一點 */
+    transform: translateY(-1px);
+  }
+
+  .close-ad-btn:active {
+    background-color: #5b21b6;
+    transform: scale(0.98);
+  }
+</style>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L8SKNZLSZ"></script>
 <script>
@@ -407,10 +431,59 @@
 
   gtag('config', 'G-6L8SKNZLSZ');
 </script>
+
+<style>
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+}
+
+.side-ad {
+    width: 160px;
+    min-width: 120px;
+    max-width: 160px;
+    height: 600px;
+    margin: 0 10px;
+    position: sticky;
+    top: 20px;
+    z-index: 10;
+}
+
+.left-ad {
+    order: -1;
+}
+
+.right-ad {
+    order: 1;
+}
+
+@media (max-width: 1024px) {
+    .side-ad {
+        display: none;
+    }
+}
+
+</style>
 </head>
 <body>
+    <div class="side-ad left-ad">
+        <!-- 左側廣告 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5336208084094672"
+             data-ad-slot="2086439373"
+             data-ad-format="vertical"
+             data-full-width-responsive="false"></ins>
+        <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+
+
     <div class="container">
-        <h1>✨ AI 繪圖生成器</h1>
+        <h1>✨ AI 繪圖生成器 ✨</h1>
         <p class="subtitle">本專案使用 Pollinations API 開發而成</p>
         
         <form id="imageForm">
@@ -508,6 +581,7 @@
                         </div>
                     </div>
                     <p class="ad-text">感謝您的支持，關閉此廣告以繼續使用！</p>
+                    <p><button class="close-ad-btn" onclick="closeAd()" style="margin-top: 10px">關閉廣告</button></p>
                 </div>
             </div>
         </div>
