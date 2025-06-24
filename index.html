@@ -464,22 +464,61 @@
         display: none;
     }
 }
+.layout-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: nowrap;
+}
+
+.main-content {
+    flex: 1;
+    max-width: 600px;
+    min-width: 300px;
+}
+
+.side-ad {
+    width: 160px;
+    max-width: 160px;
+    position: sticky;
+    top: 30px;
+    height: fit-content;
+    z-index: 1;
+}
+
+@media (max-width: 1024px) {
+    .side-ad {
+        display: none;
+    }
+
+    .layout-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+}
 
 </style>
 </head>
 <body>
-    <div class="side-ad left-ad">
-        <!-- 左側廣告 -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-5336208084094672"
-             data-ad-slot="2086439373"
-             data-ad-format="vertical"
-             data-full-width-responsive="false"></ins>
-        <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-    </div>
+    <div class="layout-wrapper">
+  <aside class="side-ad left-ad">
+    <!-- 左側廣告 -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-5336208084094672"
+         data-ad-slot="2086439373"
+         data-ad-format="vertical"
+         data-full-width-responsive="false"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </aside>
+
+  <main class="main-content">
 
 
     <div class="container">
@@ -586,6 +625,18 @@
             </div>
         </div>
     </div>
+</main>
+ <aside class="side-ad right-ad">
+    <!-- 右側廣告 -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-5336208084094672"
+         data-ad-slot="2086439373"
+         data-ad-format="vertical"
+         data-full-width-responsive="false"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </aside>
+</div>
 
     <!-- AdSense 腳本 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5336208084094672" crossorigin="anonymous"></script>
