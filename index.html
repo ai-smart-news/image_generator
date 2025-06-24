@@ -470,7 +470,7 @@
     align-items: flex-start;
     gap: 20px;
     padding: 20px;
-    flex-wrap: nowrap;
+    box-sizing: border-box;
 }
 
 .main-content {
@@ -480,12 +480,15 @@
 }
 
 .side-ad {
-    width: 160px;
-    max-width: 160px;
-    position: sticky;
-    top: 30px;
-    height: fit-content;
-    z-index: 1;
+  width: 160px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 30px;
+  height: fit-content;
+  z-index: 1;
+}
+.container {
+  margin: 0; /* 關鍵：拿掉原本置中用的 margin:auto */
 }
 
 @media (max-width: 1024px) {
