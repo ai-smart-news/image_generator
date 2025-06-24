@@ -11,7 +11,7 @@
             box-sizing: border-box;
         }
 
-        /* 廣告彈窗樣式 */
+        /* 廣告彈窗樣式 - 修正版本 */
         .ad-overlay {
             position: fixed;
             top: 0;
@@ -30,6 +30,7 @@
             background: white;
             border-radius: 20px;
             padding: 0;
+            width: 420px; /* 固定寬度 */
             max-width: 90vw;
             max-height: 90vh;
             position: relative;
@@ -85,18 +86,18 @@
         }
 
         .ad-content {
-            padding: 30px;
+            padding: 20px;
             text-align: center;
-            min-height: 300px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
+        /* 關鍵修正：廣告容器固定尺寸 */
         .ad-placeholder {
-            width: 100%;
-            height: 250px;
+            width: 320px; /* 固定寬度 */
+            height: 250px; /* 固定高度 */
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             border-radius: 15px;
             display: flex;
@@ -104,11 +105,20 @@
             justify-content: center;
             align-items: center;
             color: white;
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             position: relative;
             overflow: hidden;
+        }
+
+        /* AdSense 容器樣式 */
+        .adsbygoogle {
+            display: block !important;
+            width: 320px !important;
+            height: 250px !important;
+            background: #f8f9fa;
+            border-radius: 15px;
         }
 
         .ad-placeholder::before {
@@ -135,20 +145,44 @@
 
         .ad-text {
             color: #666;
-            font-size: 14px;
-            line-height: 1.5;
+            font-size: 12px;
+            line-height: 1.4;
+            margin-top: 10px;
         }
 
+        /* 響應式設計 */
+        @media (max-width: 480px) {
+            .ad-modal {
+                width: 95vw;
+                margin: 10px;
+            }
+            
+            .ad-content {
+                padding: 15px;
+            }
+            
+            .ad-placeholder {
+                width: 300px;
+                height: 200px;
+            }
+            
+            .adsbygoogle {
+                width: 300px !important;
+                height: 200px !important;
+            }
+        }
+
+        /* 頁面基本樣式 */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 10px;
+            padding: 20px;
             color: #333;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
@@ -156,319 +190,24 @@
             padding: 40px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
         }
 
-        h1 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 10px;
+        .demo-btn {
+            padding: 15px 30px;
             background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 40px;
-            font-size: 1.1em;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-
-        label {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #555;
-            font-size: 0.95em;
-        }
-
-        input, select, textarea {
-            padding: 15px;
-            border: 2px solid #e1e5e9;
+            color: white;
+            border: none;
             border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
             font-size: 16px;
             transition: all 0.3s ease;
-            background: white;
         }
 
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .dimension-inputs {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .dimension-inputs input {
-            flex: 1;
-        }
-
-        .dimension-inputs span {
-            font-weight: 600;
-            color: #667eea;
-        }
-
-        .seed-container {
-            display: flex;
-            gap: 10px;
-        }
-
-        .seed-container input {
-            flex: 1;
-        }
-
-        .random-btn {
-            padding: 15px 20px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .random-btn:hover {
+        .demo-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .checkbox-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 5px;
-        }
-
-        .checkbox-container input[type="checkbox"] {
-            width: auto;
-            margin: 0;
-            transform: scale(1.2);
-        }
-
-        .generate-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            color: white;
-            border: none;
-            border-radius: 16px;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .generate-btn:hover:not(:disabled) {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
-        }
-
-        .generate-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .cooldown-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: width 0.1s linear;
-            border-radius: 16px;
-        }
-
-        .url-display {
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
-            border-radius: 12px;
-            padding: 20px;
-            font-family: 'Courier New', monospace;
-            word-break: break-all;
-            font-size: 14px;
-            line-height: 1.5;
-            color: #495057;
-        }
-
-        .copy-btn {
-            margin-top: 15px;
-            padding: 12px 24px;
-            background: #28a745;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .copy-btn:hover {
-            background: #218838;
-            transform: translateY(-1px);
-        }
-
-        .stats {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: rgba(102, 126, 234, 0.1);
-            border-radius: 12px;
-            font-size: 14px;
-            color: #555;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-                margin: 10px;
-                max-width: calc(100vw - 20px);
-            }
-            
-            .form-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            h1 {
-                font-size: 1.8em;
-            }
-            
-            .subtitle {
-                font-size: 1em;
-                margin-bottom: 30px;
-            }
-            
-            input, select, textarea {
-                font-size: 16px; /* 防止 iOS 縮放 */
-            }
-            
-            .seed-container {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .random-btn {
-                width: 100%;
-            }
-            
-            .generate-btn {
-                font-size: 16px;
-                padding: 16px;
-            }
-            
-            .image-info div[style*="grid-template-columns"] {
-                grid-template-columns: 1fr !important;
-                gap: 8px;
-            }
-            
-            .image-info div[style*="display: flex"] {
-                flex-direction: column;
-            }
-            
-            .copy-btn {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-            
-            .ad-modal {
-                max-width: 95vw;
-                margin: 10px;
-            }
-            
-            .ad-content {
-                padding: 20px;
-                min-height: 250px;
-            }
-            
-            .ad-placeholder {
-                height: 200px;
-            }
-        }
-
-        .loading-animation {
-            display: none;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .loading-dots {
-            display: inline-block;
-            position: relative;
-            width: 80px;
-            height: 80px;
-        }
-
-        .loading-dots div {
-            position: absolute;
-            top: 33px;
-            width: 13px;
-            height: 13px;
-            border-radius: 50%;
-            background: #667eea;
-            animation-timing-function: cubic-bezier(0, 1, 1, 0);
-        }
-
-        .loading-dots div:nth-child(1) {
-            left: 8px;
-            animation: loading1 0.6s infinite;
-        }
-
-        .loading-dots div:nth-child(2) {
-            left: 8px;
-            animation: loading2 0.6s infinite;
-        }
-
-        .loading-dots div:nth-child(3) {
-            left: 32px;
-            animation: loading2 0.6s infinite;
-        }
-
-        .loading-dots div:nth-child(4) {
-            left: 56px;
-            animation: loading3 0.6s infinite;
-        }
-
-        @keyframes loading1 {
-            0% { transform: scale(0); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes loading3 {
-            0% { transform: scale(1); }
-            100% { transform: scale(0); }
-        }
-
-        @keyframes loading2 {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(24px, 0); }
         }
     </style>
     <!-- Google tag (gtag.js) -->
