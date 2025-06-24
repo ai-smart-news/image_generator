@@ -754,6 +754,7 @@
         let pendingAction = null; // 儲存待執行的動作
 
         function showAdAndDownload() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             pendingAction = 'download';
             document.getElementById('adOverlay').style.display = 'flex';
             // 延遲載入廣告，確保彈窗完全顯示
@@ -761,6 +762,7 @@
         }
 
         function showAdAndContinue() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             pendingAction = 'continue';
             document.getElementById('adOverlay').style.display = 'flex';
             // 延遲載入廣告，確保彈窗完全顯示
