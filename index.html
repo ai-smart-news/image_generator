@@ -422,11 +422,6 @@
     transform: scale(0.98);
   }
 </style>
-<style>
-    .container {
-    max-width: calc(100% - 360px); /* 原本600px內容區 + 兩側160px廣告 + margin */
-}
-</style>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L8SKNZLSZ"></script>
 <script>
@@ -438,6 +433,7 @@
 </script>
 </head>
 <body>
+    <div class="page-wrapper">
     <div class="side-ad left-ad">
         <!-- 左側廣告 -->
         <ins class="adsbygoogle"
@@ -551,6 +547,19 @@
             </div>
         </div>
     </div>
+
+    <div class="side-ad right-ad">
+        <!-- 右側直式廣告 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5336208084094672"
+             data-ad-slot="2086439373"
+             data-ad-format="vertical"
+             data-full-width-responsive="false"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+    </div>
+</body>
 
     <!-- AdSense 腳本 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5336208084094672" crossorigin="anonymous"></script>
